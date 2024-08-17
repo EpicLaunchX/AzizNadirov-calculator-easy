@@ -6,7 +6,7 @@ from src.pytemplate.domain.models import Operands
 
 class TestOperands(TestCase):
     def test_types(self):
-        self.assertIsInstance(Operands(1, 1), Operands)
+        self.assertIsInstance(Operands(first_operand=1, second_operand=1), Operands)
 
 
 if __name__ == "__main__":
