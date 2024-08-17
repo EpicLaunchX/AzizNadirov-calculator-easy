@@ -2,6 +2,7 @@ import unittest
 from unittest import TestCase
 
 from src.pytemplate.domain.models import Operands, operands_factory
+from src.pytemplate.entrypoints.cli.main import main
 from src.pytemplate.service.calculator import Calculator
 
 
@@ -36,6 +37,14 @@ class Testcalculator(TestCase):
         calculator = Calculator()
         operands = Operands(first_operand=1, second_operand=1)
         self.assertEqual(calculator.divide(operands), 1)
+
+
+class TestMain(TestCase):
+    def test_main(self):
+        self.assertEqual(main(1, 1, "add"), 2)
+        self.assertEqual(main(1, 1, "subtract"), 0)
+        self.assertEqual(main(2, 3, "multiply"), 6)
+        self.assertEqual(main(1, 1, "divide"), 1)
 
 
 if __name__ == "__main__":
